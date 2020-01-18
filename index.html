@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v4.0.3/dist/aframe-extras.min.js"></script>
+    <title>A Trip to the Moon</title>
+</head>
+
+<body>
+    <a-scene shadow="type: pcfsoft">
+        <a-asset>
+            <img id="texture-sky" src="/assets/starry-sky-at-night.jpg" alt="">
+            <img id="texture-ground" src="/assets/ground.jpg" alt="">
+            <a-asset-item id="letter-A" src="/assets/A.glb"></a-asset-item>
+            <a-asset-item id="letter-T" src="/assets/T.glb"></a-asset-item>
+            <a-asset-item id="letter-rip" src="/assets/rip.glb"></a-asset-item>
+            <a-asset-item id="letter-tothe" src="/assets/tothe.glb"></a-asset-item>
+            <a-asset-item id="letter-Moon" src="/assets/Moon.glb"></a-asset-item>
+            <a-asset-item id="temp-Moon" src="/assets/temp/scene.gltf"></a-asset-item>
+            
+
+        </a-asset>
+
+        <a-entity id="rig" movement-controls="fly: false;">
+            <a-entity camera position="0 1.6 0" look-controls></a-entity>
+        </a-entity>
+
+        <a-entity light="type: ambient; color: #555; "></a-entity>
+        <a-entity light="type: directional;
+            castShadow: true;
+            color: #fff; 
+            intensity: 0.8;
+            shadowCameraVisible: false;" position="-1 2 3"></a-entity>
+
+        <a-sky color="#ECECEC" material="src: #texture-sky; repeat: 15 10"></a-sky>
+        <!-- <a-plane color="#323232" height="10" width="10" rotation="-90 0 0" repeat="3 3" shadow="receive: true">
+        </a-plane> -->
+
+
+        <a-box position="0 2.3 -1" rotation="0 0 0" color="#E8D781" shadow="cast:true; receive: true" width="1.2"
+            height="0.02" depth="0.01"></a-box>
+        <a-box position="0 0.9 -1" rotation="0 0 0" color="#E8D781" shadow="cast:true; receive: true" width="1.2"
+            height="0.02" depth="0.01"></a-box>
+        <a-box position="0.6 1.6 -1" rotation="0 0 0" color="#E8D781" shadow="cast:true; receive: true" width="0.02"
+            height="1.42" depth="0.01"></a-box>
+        <a-box position="-0.6 1.6 -1" rotation="0 0 0" color="#E8D781" shadow="cast:true; receive: true" width="0.02"
+            height="1.42" depth="0.01"></a-box>
+
+        <a-entity gltf-model="#letter-A" scale="0.009 0.009 0" position="-0.45 1.094 -1" color="#E8D781" rotation="-25 14 -5"></a-entity>
+        <a-entity gltf-model="#letter-T" scale="0.002 0.002 0.005" position="-0.06 1.487 -0.225" color="#E8D781" rotation="-22 10 -4"></a-entity>
+        <a-entity gltf-model="#letter-rip" scale="0.1 0.1 0.1" position="-2.5 -8.3 -20" color="#E8D781" rotation="-25 7 -2.5"></a-entity>
+        <a-entity gltf-model="#letter-tothe" scale="0.012 0.012 0.4" position="0.18 -0.3 -4" color="#E8D781" rotation="-25 -2 1 "></a-entity>
+        <a-entity gltf-model="#letter-Moon" scale="2 2.7 2.3" position="100 -150 -300" color="#E8D781" rotation="-20 -18 7"></a-entity>
+
+        <!-- TEMP. DELETE BELOW-->
+        <a-entity light="type: point; intensity: 1a; distance: 200; decay: 2"
+        position="0 10 -100"></a-entity>
+        <a-entity gltf-model="#temp-Moon" scale="0.7 0.7 0.7" position="0 10 -100" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-entity>
+
+
+    </a-scene>
+</body>
+
+</html>
