@@ -19,7 +19,9 @@
             <a-asset-item id="letter-rip" src="/assets/rip.glb"></a-asset-item>
             <a-asset-item id="letter-tothe" src="/assets/tothe.glb"></a-asset-item>
             <a-asset-item id="letter-Moon" src="/assets/Moon.glb"></a-asset-item>
-            <a-asset-item id="temp-Moon" src="/assets/temp/scene.gltf"></a-asset-item>
+            <a-asset-item id="moon" src="/assets/nasa_cgi_moon_kit/scene.gltf"></a-asset-item>
+            <a-asset-item id="rocket" src="/assets/rocket_ship/scene.gltf"></a-asset-item>
+
             
 
         </a-asset>
@@ -28,17 +30,7 @@
             <a-entity camera position="0 1.6 0" look-controls></a-entity>
         </a-entity>
 
-        <a-entity light="type: ambient; color: #555; "></a-entity>
-        <a-entity light="type: directional;
-            castShadow: true;
-            color: #fff; 
-            intensity: 0.8;
-            shadowCameraVisible: false;" position="-1 2 3"></a-entity>
-
         <a-sky color="#ECECEC" material="src: #texture-sky; repeat: 15 10"></a-sky>
-        <!-- <a-plane color="#323232" height="10" width="10" rotation="-90 0 0" repeat="3 3" shadow="receive: true">
-        </a-plane> -->
-
 
         <a-box position="0 2.3 -1" rotation="0 0 0" color="#E8D781" shadow="cast:true; receive: true" width="1.2"
             height="0.02" depth="0.01"></a-box>
@@ -55,11 +47,23 @@
         <a-entity gltf-model="#letter-tothe" scale="0.012 0.012 0.4" position="0.18 -0.3 -4" color="#E8D781" rotation="-25 -2 1 "></a-entity>
         <a-entity gltf-model="#letter-Moon" scale="2 2.7 2.3" position="100 -150 -300" color="#E8D781" rotation="-20 -18 7"></a-entity>
 
-        <!-- TEMP. DELETE BELOW-->
-        <a-entity light="type: point; intensity: 1a; distance: 200; decay: 2"
-        position="0 10 -100"></a-entity>
-        <a-entity gltf-model="#temp-Moon" scale="0.7 0.7 0.7" position="0 10 -100" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-entity>
 
+        <a-entity light="type: ambient; color: #555; intensity: 0.8"></a-entity>
+        <a-entity light="type: directional;
+            castShadow: true;
+            color: #fff; 
+            intensity: 0.5;
+            shadowCameraVisible: false;" position="-1 2 3"></a-entity>
+        <a-entity light="type: directional;
+            castShadow: true;
+            color: white; 
+            intensity: 1.3;
+            shadowCameraVisible: false;" position="-100 100 -100"></a-entity>
+
+        <a-entity id="moon-and-rocket" position="0 15 -100" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+            <a-entity gltf-model="#moon" scale="4 4 4" light="type: ambient; intensity: 0.3" shadow="cast:true; receive: true"></a-entity>
+            <a-entity gltf-model="#rocket" scale="0.15 0.15 0.15" position="-30 2 56" rotation="-90, -30, -20" shadow="cast:true; receive: true"></a-entity>
+        </a-entity>
 
     </a-scene>
 </body>
